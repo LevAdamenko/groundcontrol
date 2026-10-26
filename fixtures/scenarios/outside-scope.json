@@ -1,0 +1,10 @@
+{
+  "id": "outside-scope",
+  "title": "DXB to WAW on Gulf Horizon delay 6h outside EU261 scope",
+  "input_text": "Customer Claim Enquiry:\nPassenger Name: Marek Zieliński\nFlight GH901 from Dubai (DXB) to Warsaw (WAW), operated by Gulf Horizon on September 12, 2026.\nScheduled departure: 08:00, scheduled arrival: 12:30.\nActual arrival in Warsaw: 18:30 (6 hours / 360 minutes late).\nDisruption: Long delay. Reason given by carrier: Aircraft turnaround delay in Dubai.\nDoes EU261 compensation apply to this flight?",
+  "expected": {
+    "applies": false,
+    "amount": 0,
+    "disputed": false
+  }
+}

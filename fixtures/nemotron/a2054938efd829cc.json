@@ -1,0 +1,71 @@
+{
+  "recorded": true,
+  "request": {
+    "messages": [
+      {
+        "content": "You are an assistant drafting a concise, factual narrative statement of what happened for a flight disruption claim. Write 2\u20134 sentences in the first person. State only the facts of the disruption. Do not mention any euro amounts, do not include legal citations or references to regulations, and make no promises. Write only the paragraph, without greetings, pleasantries, or sign-offs. Use every number exactly as given, with its unit; never turn an arrival delay into a departure delay or days into hours.",
+        "role": "system"
+      },
+      {
+        "content": "Flight VQ505 operated by VQ from WAW to JFK. Disruption type: delay. Stated reason: severe thunderstorm and lightning along the transatlantic flight route. Arrival at the final destination was 300 minutes (5 h 0 min) later than scheduled. Scheduled departure: 2026-07-20T11:00:00.",
+        "role": "user"
+      }
+    ],
+    "model": "nvidia/nemotron-3-super-120b-a12b"
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "annotations": null,
+          "audio": null,
+          "content": "\n\nI was scheduled to travel on flight VQ505 operated by VQ from Warsaw (WAW) to New York (JFK). The flight was delayed because of severe thunderstorm and lightning along the transatlantic route. My arrival at JFK was 300 minutes (5 h 0 min) later than scheduled, and the original departure time was set for 2026-07-20T11:00:00.",
+          "function_call": null,
+          "reasoning": "We need to write 2-4 sentences, first person, stating only facts of disruption. No euros, no legal citations, no promises. Must use numbers exactly as given, with units. The data:\n\n- Flight VQ505 operated by VQ from WAW to JFK.\n- Disruption type: delay.\n- Reason: severe thunderstorm and lightning along the transatlantic flight route.\n- Arrival at final destination was 300 minutes (5 h 0 min) later than scheduled.\n- Scheduled departure: 2026-07-20T11:00:00.\n\nWe must state these facts. We can say \"I was on flight VQ505...\" etc. Should we mention both minutes and hour? They gave both forms but they said \"Arrival ... was 300 minutes (5 h 0 min) later\". So we should keep that exact phrase maybe. But we cannot change it. Could just repeat \"the arrival was 300 minutes (5 h 0 min) later than scheduled.\" That's fine.\n\nAlso note scheduled departure date/time. Provide that fact.\n\nWrite 2-4 sentences. Let's produce three sentences.\n\nSentence 1: I was booked on flight VQ505 operated by VQ departing Warsaw (WAW) for New York (JFK). Sentence 2: The flight experienced a delay due to severe thunderstorm and lightning along the transatlantic route. Sentence 3: As a result, my arrival at JFK was 300 minutes (5\u202fh\u202f0\u202fmin) later than the scheduled time, which had been set for departure on 2026\u201107\u201120 at 11:00.\n\nCheck usage: used numbers exactly as given: 300 minutes (5 h 0 min). Also schedule departure includes date-time format exactly as given: 2026-07-20T11:00:00. Did we preserve T? In sentence we wrote \"departure on 2026-07-20 at 11:00\" - changed format. Need to keep exactly as given: \"Scheduled departure: 2026-07-20T11:00:00.\" So we must include that string unchanged. Perhaps better: \"The scheduled departure was 2026-07-20T11:00:00.\"\n\nThus incorporate that exactly.\n\nLet's craft:\n\n\"I was scheduled to travel on flight VQ505 operated by VQ from Warsaw (WAW) to New York (JFK). The flight was delayed because of severe thunderstorm and lightning along the transatlantic route. My arrival at JFK was 300 minutes (5\u202fh\u202f0\u202fmin) later than scheduled, and the original departure time was set for 2026-07-20T11:00:00.\"\n\nThat is three sentences, uses numbers exactly as given. Ensure parentheses spacing same? Original: \"300 minutes (5 h 0 min)\". There's a space after parentheses? It shows \"(5 h 0 min)\" with spaces between numbers and h and min. We'll replicate exactly: \"300 minutes (5 h 0 min)\". Good.\n\nNow check if we turned arrival delay into departure delay inadvertently? No.\n\nAll good.",
+          "reasoning_content": "We need to write 2-4 sentences, first person, stating only facts of disruption. No euros, no legal citations, no promises. Must use numbers exactly as given, with units. The data:\n\n- Flight VQ505 operated by VQ from WAW to JFK.\n- Disruption type: delay.\n- Reason: severe thunderstorm and lightning along the transatlantic flight route.\n- Arrival at final destination was 300 minutes (5 h 0 min) later than scheduled.\n- Scheduled departure: 2026-07-20T11:00:00.\n\nWe must state these facts. We can say \"I was on flight VQ505...\" etc. Should we mention both minutes and hour? They gave both forms but they said \"Arrival ... was 300 minutes (5 h 0 min) later\". So we should keep that exact phrase maybe. But we cannot change it. Could just repeat \"the arrival was 300 minutes (5 h 0 min) later than scheduled.\" That's fine.\n\nAlso note scheduled departure date/time. Provide that fact.\n\nWrite 2-4 sentences. Let's produce three sentences.\n\nSentence 1: I was booked on flight VQ505 operated by VQ departing Warsaw (WAW) for New York (JFK). Sentence 2: The flight experienced a delay due to severe thunderstorm and lightning along the transatlantic route. Sentence 3: As a result, my arrival at JFK was 300 minutes (5\u202fh\u202f0\u202fmin) later than the scheduled time, which had been set for departure on 2026\u201107\u201120 at 11:00.\n\nCheck usage: used numbers exactly as given: 300 minutes (5 h 0 min). Also schedule departure includes date-time format exactly as given: 2026-07-20T11:00:00. Did we preserve T? In sentence we wrote \"departure on 2026-07-20 at 11:00\" - changed format. Need to keep exactly as given: \"Scheduled departure: 2026-07-20T11:00:00.\" So we must include that string unchanged. Perhaps better: \"The scheduled departure was 2026-07-20T11:00:00.\"\n\nThus incorporate that exactly.\n\nLet's craft:\n\n\"I was scheduled to travel on flight VQ505 operated by VQ from Warsaw (WAW) to New York (JFK). The flight was delayed because of severe thunderstorm and lightning along the transatlantic route. My arrival at JFK was 300 minutes (5\u202fh\u202f0\u202fmin) later than scheduled, and the original departure time was set for 2026-07-20T11:00:00.\"\n\nThat is three sentences, uses numbers exactly as given. Ensure parentheses spacing same? Original: \"300 minutes (5 h 0 min)\". There's a space after parentheses? It shows \"(5 h 0 min)\" with spaces between numbers and h and min. We'll replicate exactly: \"300 minutes (5 h 0 min)\". Good.\n\nNow check if we turned arrival delay into departure delay inadvertently? No.\n\nAll good.",
+          "refusal": null,
+          "role": "assistant",
+          "tool_calls": null
+        },
+        "routed_experts": null,
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "created": 1792074504,
+    "ec_transfer_params": null,
+    "id": "chatcmpl-9b339594cead81f6",
+    "kv_transfer_params": null,
+    "metrics": null,
+    "model": "nvidia/nemotron-3-super-120b-a12b",
+    "moderation": null,
+    "object": "chat.completion",
+    "prompt_logprobs": null,
+    "prompt_text": null,
+    "prompt_token_ids": null,
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.1.dev1+g5001743e3-dp2-9bbaa064",
+    "usage": {
+      "completion_tokens": 823,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": null,
+        "reasoning_tokens": 724,
+        "rejected_prediction_tokens": null
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 204,
+      "prompt_tokens": 204,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cached_tokens": 0,
+        "created_cache_tokens": 0,
+        "multimodal_tokens": null
+      },
+      "total_tokens": 1027
+    }
+  }
+}

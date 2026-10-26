@@ -1,0 +1,64 @@
+{
+  "recorded": true,
+  "request": {
+    "include_domains": [
+      "curia.europa.eu",
+      "eur-lex.europa.eu",
+      "europa.eu",
+      "transport.ec.europa.eu",
+      "ulc.gov.pl"
+    ],
+    "max_results": 5,
+    "query": "Regulation 261 2004 meals and refreshments Article 9"
+  },
+  "response": {
+    "answer": null,
+    "follow_up_questions": null,
+    "images": [],
+    "query": "Regulation 261 2004 meals and refreshments Article 9",
+    "request_id": "01b9dd4e-fb3c-4b57-b102-6672296dce5a",
+    "response_time": 0.0,
+    "results": [
+      {
+        "content": "17Article 9(1) and 9(2) of Regulation No 261/2004, entitled \u2018Right to care\u2019, provides:\n\n\u20181.Where reference is made to this Article, passengers shall be offered free of charge:\n\n(a)meals and refreshments in a reasonable relation to the waiting time;\n\n(b)hotel accommodation in cases\n\n\u2013where a stay of one or more nights becomes necessary, or\n\n\u2013where a stay additional to that intended by the passenger becomes necessary;\n\n(c)transport between the airport and place of accommodation (hotel or other). [...] of arrival and the originally scheduled airport) and provide care (meal, accommodation and communication costs) under Article 8 and Article 9 of Regulation No 261/2004. [...] 44However, when a carrier fails to fulfil its obligations under Article 8 and Article 9 of Regulation No 261/2004, air passengers are justified in claiming a right to compensation on the basis of the factors set out in those articles.",
+        "id": "a9c15b-00",
+        "raw_content": null,
+        "score": 0.9094659,
+        "title": "Untitled",
+        "url": "https://infocuria.curia.europa.eu/tabs/redirect/juris/document/document.jsf?docid=111221&doclang=EN"
+      },
+      {
+        "content": "Right to care\n\n1. Where reference is made to this Article, passengers shall be offered free of charge:\n\n(a) meals and refreshments in a reasonable relation to the waiting time;\n\n(b) hotel accommodation in cases\n\n- where a stay of one or more nights becomes necessary, or\n\n- where a stay additional to that intended by the passenger becomes necessary;\n\n(c) transport between the airport and place of accommodation (hotel or other). [...] Right to care\n\n1. Where reference is made to this Article, passengers shall be offered free of charge:\n\n(a) meals and refreshments in a reasonable relation to the waiting time;\n\n(b) hotel accommodation in cases\n\n- where a stay of one or more nights becomes necessary, or\n\n- where a stay additional to that intended by the passenger becomes necessary;\n\n(c) transport between the airport and place of accommodation (hotel or other). [...] passengers shall be offered by the operating air carrier:\n\n(i) the assistance specified in Article 9(1)(a) and 9(2); and\n\n(ii) when the reasonably expected time of departure is at least the day after the time of departure previously announced, the assistance specified in Article 9(1)(b) and 9(1)(c); and\n\n(iii) when the delay is at least five hours, the assistance specified in Article 8(1)(a).",
+        "id": "203e7b-01",
+        "raw_content": null,
+        "score": 0.76002824,
+        "title": "Regulation - 261/2004 - EN - Flight Compensation Regulation - EUR-Lex",
+        "url": "https://eur-lex.europa.eu/eli/reg/2004/261/oj/eng"
+      },
+      {
+        "content": "Right to care\n\n1. Where reference is made to this Article, passengers shall be offered free of charge:\n\n(a) meals and refreshments in a reasonable relation to the waiting time;\n\n(b) hotel accommodation in cases\n\n- where a stay of one or more nights becomes necessary, or\n\n- where a stay additional to that intended by the passenger becomes necessary;\n\n(c) transport between the airport and place of accommodation (hotel or other). [...] 3. When, in the case where a town, city or region is served by several airports, an operating air carrier offers a passenger a flight to an airport alternative to that for which the booking was made, the operating air carrier shall bear the cost of transferring the passenger from that alternative airport either to that for which the booking was made, or to another close-by destination agreed with the passenger.\n\nArticle 9\n\nRight to care [...] passengers shall be offered by the operating air carrier:\n\n(i) the assistance specified in Article 9(1)(a) and 9(2); and\n\n(ii) when the reasonably expected time of departure is at least the day after the time of departure previously announced, the assistance specified in Article 9(1)(b) and 9(1)(c); and\n\n(iii) when the delay is at least five hours, the assistance specified in Article 8(1)(a).",
+        "id": "f8d65e-02",
+        "raw_content": null,
+        "score": 0.7598145,
+        "title": "EUR-Lex - 32004R0261 - EN",
+        "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML?uri=CELEX%3A32004R0261"
+      },
+      {
+        "content": "in the event of long delays (2 hours or more, depending on the distance of the flight), passengers must in every case be offered free meals and refreshments plus 2 free telephone calls, telex or fax messages, or e-mails;\n if the time of departure is deferred until the next day, passengers must also be offered hotel accommodation and transport between the airport and the place of accommodation; [...] ## MAIN DOCUMENT\n\nRegulation (EC) No 261/2004 of the European Parliament and of the Council of establishing common rules on compensation and assistance to passengers in the event of denied boarding and of cancellation or long delay of flights, and repealing Regulation (EEC) No 295/91 (OJ L 46, , pp. 1-8)\n\n## RELATED DOCUMENTS [...] ## SUMMARY OF:\n\nRegulation (EC) No 261/2004 setting out common rules on compensation and assistance to passengers in the event of denied boarding and of cancellation or long delay of flights\n\n## WHAT IS THE AIM OF THE REGULATION?\n\nIt aims to ensure a high level of protection for passengers by setting common rules on compensation and assistance to passengers in the event of denied boarding and of cancellation or long delay of flights.\n\n## KEY POINTS\n\nThis regulation applies to:",
+        "id": "ecda72-03",
+        "raw_content": null,
+        "score": 0.4889428,
+        "title": "EU air passenger rights in case of denied boarding, a delayed flight or a cancelled flight | EUR-Lex",
+        "url": "https://eur-lex.europa.eu/EN/legal-content/summary/eu-air-passenger-rights-in-case-of-denied-boarding-a-delayed-flight-or-a-cancelled-flight.html"
+      },
+      {
+        "content": "YES - if you arrive at your final destination with a delay of 3 hours or more, you may be entitled to\nfinancial compensation, as long as the delay was not caused by extraordinary circumstances.\nIf your flight is delayed for two hours or more at departure, the airline must offer you care (meals and refreshments and, if necessary accommodation).\nIf this delay means that, you arrive at your final destination with a delay of more\nthan 3 hours you may also be entitled to financial compensation. [...] YES - you have rights under EU rules. You are entitled to reimbursement of the full cost\nof your ticket for the part of your journey not made or re-routing at the earliest\nopportunity. If you are already at the airport and you opt for re-routing, you are\nalso entitled to meals and refreshments in proportion to your waiting time, and two\ntelephone calls, texts or emails. You are also entitled to overnight accommodation",
+        "id": "78a415-04",
+        "raw_content": null,
+        "score": 0.33509022,
+        "title": "FAQs|Air passenger rights - Your Europe",
+        "url": "https://europa.eu/youreurope/citizens/travel/passenger-rights/air/faq/index_en.htm"
+      }
+    ]
+  }
+}

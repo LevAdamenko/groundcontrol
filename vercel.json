@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "app.py": {
+      "includeFiles": "{groundcontrol/**,fixtures/**}",
+      "maxDuration": 10
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+*.key
+__pycache__/
+.pytest_cache/
+.venv/
+*.egg-info/
+.DS_Store
+result.json
+result.txt
+.vercel

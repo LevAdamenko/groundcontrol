@@ -1,0 +1,74 @@
+{
+  "recorded": true,
+  "request": {
+    "messages": [
+      {
+        "content": "You are a flight disruption analyzer for EU261 passenger claims. Extract the flight facts from the input text into a strict JSON object.\nAll 15 keys must always be present in the output JSON object; use null when a value is unknown or unstated.\n\nSchema and Field Definitions:\n- flight_number: string or null (e.g. 'VQ101')\n- carrier: string or null (operating carrier code or name, e.g. 'VQ' or 'Vistula Air')\n- departure_airport: string or null (3-letter IATA code uppercase, e.g. 'WAW')\n- arrival_airport: string or null (3-letter IATA code uppercase, e.g. 'CDG')\n- scheduled_departure: string or null (local time ISO-8601, e.g. '2026-05-15T10:00:00')\n- scheduled_arrival: string or null (local time ISO-8601, e.g. '2026-05-15T13:30:00')\n- actual_arrival: string or null (local time ISO-8601, e.g. '2026-05-15T17:10:00')\n- disruption_type: string or null ('delay' or 'cancellation')\n- stated_reason: string or null (stated disruption reason)\n- notice_days: integer or null (days between notice and scheduled departure only if stated)\n- reroute_departs_early_min: integer or null (minutes departed early on reroute)\n- reroute_arrives_late_min: integer or null (minutes arrived late on reroute)\n- departure_delay_min: integer or null (departure delay in minutes)\n- arrival_delay_min: integer or null (compute arrival_delay_min only if both scheduled and actual arrival are stated)\n- passenger_name: string or null\n\nRules:\n1. Exact JSON schema: all 15 keys must always be present (null when unknown).\n2. IATA codes uppercase.\n3. Times ISO-8601 local.\n4. Integers for minutes/days.\n5. Compute arrival_delay_min only if both scheduled and actual arrival are stated.\n6. Never guess.\n7. notice_days = days between notice and scheduled departure only if stated.\n8. No prose / no markdown. Respond with only the JSON object.",
+        "role": "system"
+      },
+      {
+        "content": "I am writing to file a compensation claim for flight VQ202 operated by Vistula Air from Warsaw (WAW) to Paris Charles de Gaulle (CDG) on June 10, 2026.\nMy name is Jan Nowak. We were scheduled to depart WAW at 14:00 and arrive in CDG at 16:30. Due to a technical fault with the aircraft hydraulic system discovered before takeoff, our flight was severely delayed. We did not arrive at Paris CDG until 20:10, which is an arrival delay of 3 hours and 40 minutes (220 minutes).",
+        "role": "user"
+      }
+    ],
+    "model": "nvidia/nemotron-3-super-120b-a12b",
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "annotations": null,
+          "audio": null,
+          "content": "{\"flight_number\": \"VQ202\", \"carrier\": \"Vistula Air\", \"departure_airport\": \"WAW\", \"arrival_airport\": \"CDG\", \"scheduled_departure\": \"2026-06-10T14:00:00\", \"scheduled_arrival\": \"2026-06-10T16:30:00\", \"actual_arrival\": \"2026-06-10T20:10:00\", \"disruption_type\": \"delay\", \"stated_reason\": \"technical fault with the aircraft hydraulic system discovered before takeoff\", \"notice_days\": null, \"reroute_departs_early_min\": null, \"reroute_arrives_late_min\": null, \"departure_delay_min\": null, \"arrival_delay_min\": 220, \"passenger_name\": \"Jan Nowak\"}",
+          "function_call": null,
+          "reasoning": "We need extract fields:\n\nflight_number: \"VQ202\"\ncarrier: operating carrier code or name: given as \"Vistula Air\". Could also have code? Not provided. So we can set carrier: \"Vistula Air\" (string). Or maybe they want code like \"VQ\"? The example says either code or name. Since we have name, put that.\n\ndeparture_airport: WAW\narrival_airport: CDG\nscheduled_departure: date June 10, 2026 at 14:00 local => \"2026-06-10T14:00:00\"\nscheduled_arrival: same day 16:30 => \"2026-06-10T16:30:00\"\nactual_arrival: 20:10 => \"2026-06-10T20:10:00\"\ndisruption_type: delay (since severe delay)\nstated_reason: \"technical fault with the aircraft hydraulic system discovered before takeoff\"\nnotice_days: not mentioned -> null\nreroute_departs_early_min: null\nreroute_arrives_late_min: null\ndeparture_delay_min: not directly given but could compute? They gave arrival delay 220 minutes. Departure delay would be difference between actual departure and scheduled departure. Actual departure not given. Only said \"severely delayed\", but we don't have actual departure time. So cannot compute departure delay. Use null.\narrival_delay_min: compute if both scheduled and actual arrival stated: yes, we have both. Arrival delay = actual - scheduled = 20:10 - 16:30 = 3h40m = 220 minutes. Provide integer 220.\npassenger_name: \"Jan Nowak\"\n\nCheck other fields: All 15 keys present.\n\nNow produce JSON exactly.",
+          "reasoning_content": "We need extract fields:\n\nflight_number: \"VQ202\"\ncarrier: operating carrier code or name: given as \"Vistula Air\". Could also have code? Not provided. So we can set carrier: \"Vistula Air\" (string). Or maybe they want code like \"VQ\"? The example says either code or name. Since we have name, put that.\n\ndeparture_airport: WAW\narrival_airport: CDG\nscheduled_departure: date June 10, 2026 at 14:00 local => \"2026-06-10T14:00:00\"\nscheduled_arrival: same day 16:30 => \"2026-06-10T16:30:00\"\nactual_arrival: 20:10 => \"2026-06-10T20:10:00\"\ndisruption_type: delay (since severe delay)\nstated_reason: \"technical fault with the aircraft hydraulic system discovered before takeoff\"\nnotice_days: not mentioned -> null\nreroute_departs_early_min: null\nreroute_arrives_late_min: null\ndeparture_delay_min: not directly given but could compute? They gave arrival delay 220 minutes. Departure delay would be difference between actual departure and scheduled departure. Actual departure not given. Only said \"severely delayed\", but we don't have actual departure time. So cannot compute departure delay. Use null.\narrival_delay_min: compute if both scheduled and actual arrival stated: yes, we have both. Arrival delay = actual - scheduled = 20:10 - 16:30 = 3h40m = 220 minutes. Provide integer 220.\npassenger_name: \"Jan Nowak\"\n\nCheck other fields: All 15 keys present.\n\nNow produce JSON exactly.",
+          "refusal": null,
+          "role": "assistant",
+          "tool_calls": null
+        },
+        "routed_experts": null,
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "created": 1792074488,
+    "ec_transfer_params": null,
+    "id": "chatcmpl-9fdb757b628d82a8",
+    "kv_transfer_params": null,
+    "metrics": null,
+    "model": "nvidia/nemotron-3-super-120b-a12b",
+    "moderation": null,
+    "object": "chat.completion",
+    "prompt_logprobs": null,
+    "prompt_text": null,
+    "prompt_token_ids": null,
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.1.dev1+g5001743e3-dp2-9bbaa064",
+    "usage": {
+      "completion_tokens": 635,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": null,
+        "reasoning_tokens": 423,
+        "rejected_prediction_tokens": null
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 672,
+      "prompt_tokens": 672,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cached_tokens": 0,
+        "created_cache_tokens": 0,
+        "multimodal_tokens": null
+      },
+      "total_tokens": 1307
+    }
+  }
+}

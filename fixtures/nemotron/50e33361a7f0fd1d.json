@@ -1,0 +1,74 @@
+{
+  "recorded": true,
+  "request": {
+    "messages": [
+      {
+        "content": "You are a flight disruption analyzer for EU261 passenger claims. Extract the flight facts from the input text into a strict JSON object.\nAll 15 keys must always be present in the output JSON object; use null when a value is unknown or unstated.\n\nSchema and Field Definitions:\n- flight_number: string or null (e.g. 'VQ101')\n- carrier: string or null (operating carrier code or name, e.g. 'VQ' or 'Vistula Air')\n- departure_airport: string or null (3-letter IATA code uppercase, e.g. 'WAW')\n- arrival_airport: string or null (3-letter IATA code uppercase, e.g. 'CDG')\n- scheduled_departure: string or null (local time ISO-8601, e.g. '2026-05-15T10:00:00')\n- scheduled_arrival: string or null (local time ISO-8601, e.g. '2026-05-15T13:30:00')\n- actual_arrival: string or null (local time ISO-8601, e.g. '2026-05-15T17:10:00')\n- disruption_type: string or null ('delay' or 'cancellation')\n- stated_reason: string or null (stated disruption reason)\n- notice_days: integer or null (days between notice and scheduled departure only if stated)\n- reroute_departs_early_min: integer or null (minutes departed early on reroute)\n- reroute_arrives_late_min: integer or null (minutes arrived late on reroute)\n- departure_delay_min: integer or null (departure delay in minutes)\n- arrival_delay_min: integer or null (compute arrival_delay_min only if both scheduled and actual arrival are stated)\n- passenger_name: string or null\n\nRules:\n1. Exact JSON schema: all 15 keys must always be present (null when unknown).\n2. IATA codes uppercase.\n3. Times ISO-8601 local.\n4. Integers for minutes/days.\n5. Compute arrival_delay_min only if both scheduled and actual arrival are stated.\n6. Never guess.\n7. notice_days = days between notice and scheduled departure only if stated.\n8. No prose / no markdown. Respond with only the JSON object.",
+        "role": "system"
+      },
+      {
+        "content": "From: notifications@vistula-air.com\nTo: anna.kowalska@example.com\nSubject: Flight VQ401 Cancellation Notice\n\nDear Anna Kowalska,\n\nWe regret to inform you that flight VQ401 scheduled from Warsaw Chopin (WAW) to Lisbon (LIS) on May 15, 2026, departing at 10:00 and arriving at 13:30, has been cancelled due to operational reorganization.\n\nNotice of cancellation is provided 5 days prior to scheduled departure. No alternative rerouting is available at this time. Under applicable regulations, you are entitled to reimbursement or rerouting, as well as assistance.\n\nVistula Air Customer Service",
+        "role": "user"
+      }
+    ],
+    "model": "nvidia/nemotron-3-super-120b-a12b",
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "annotations": null,
+          "audio": null,
+          "content": "{\"flight_number\": \"VQ401\", \"carrier\": \"Vistula Air\", \"departure_airport\": \"WAW\", \"arrival_airport\": \"LIS\", \"scheduled_departure\": \"2026-05-15T10:00:00\", \"scheduled_arrival\": \"2026-05-15T13:30:00\", \"actual_arrival\": null, \"disruption_type\": \"cancellation\", \"stated_reason\": \"operational reorganization\", \"notice_days\": 5, \"reroute_departs_early_min\": null, \"reroute_arrives_late_min\": null, \"departure_delay_min\": null, \"arrival_delay_min\": null, \"passenger_name\": \"Anna Kowalska\"}",
+          "function_call": null,
+          "reasoning": "We need to extract fields:\n\nflight_number: \"VQ401\"\ncarrier: operating carrier code or name: Vistula Air? The email says Vistula Air. Could give carrier code maybe \"VQ\"? But we can put \"Vistula Air\". Use string.\n\ndeparture_airport: WAW (uppercase)\narrival_airport: LIS (Lisbon)\n\nscheduled_departure: date May 15, 2026, departing at 10:00 local time. Need ISO-8601: \"2026-05-15T10:00:00\"\n\nscheduled_arrival: arriving at 13:30 => \"2026-05-15T13:30:00\"\n\nactual_arrival: not applicable because cancelled. So null.\n\ndisruption_type: \"cancellation\"\n\nstated_reason: \"operational reorganization\"\n\nnotice_days: notice provided 5 days prior to scheduled departure => 5\n\nreroute_departs_early_min: none => null\n\nreroute_arrives_late_min: null\n\ndeparture_delay_min: For cancellation, departure delay? Not defined. Usually not applicable. We'll set null.\n\narrival_delay_min: compute only if both scheduled and actual arrival stated. Actual arrival null, so null.\n\npassenger_name: Anna Kowalska\n\nNow produce JSON with all 15 keys.\n\nCheck ordering not required but include all.\n\nKeys list: flight_number, carrier, departure_airport, arrival_airport, scheduled_departure, scheduled_arrival, actual_arrival, disruption_type, stated_reason, notice_days, reroute_departs_early_min, reroute_arrives_late_min, departure_delay_min, arrival_delay_min, passenger_name.\n\nMake sure integers where appropriate.\n\nReturn just JSON.",
+          "reasoning_content": "We need to extract fields:\n\nflight_number: \"VQ401\"\ncarrier: operating carrier code or name: Vistula Air? The email says Vistula Air. Could give carrier code maybe \"VQ\"? But we can put \"Vistula Air\". Use string.\n\ndeparture_airport: WAW (uppercase)\narrival_airport: LIS (Lisbon)\n\nscheduled_departure: date May 15, 2026, departing at 10:00 local time. Need ISO-8601: \"2026-05-15T10:00:00\"\n\nscheduled_arrival: arriving at 13:30 => \"2026-05-15T13:30:00\"\n\nactual_arrival: not applicable because cancelled. So null.\n\ndisruption_type: \"cancellation\"\n\nstated_reason: \"operational reorganization\"\n\nnotice_days: notice provided 5 days prior to scheduled departure => 5\n\nreroute_departs_early_min: none => null\n\nreroute_arrives_late_min: null\n\ndeparture_delay_min: For cancellation, departure delay? Not defined. Usually not applicable. We'll set null.\n\narrival_delay_min: compute only if both scheduled and actual arrival stated. Actual arrival null, so null.\n\npassenger_name: Anna Kowalska\n\nNow produce JSON with all 15 keys.\n\nCheck ordering not required but include all.\n\nKeys list: flight_number, carrier, departure_airport, arrival_airport, scheduled_departure, scheduled_arrival, actual_arrival, disruption_type, stated_reason, notice_days, reroute_departs_early_min, reroute_arrives_late_min, departure_delay_min, arrival_delay_min, passenger_name.\n\nMake sure integers where appropriate.\n\nReturn just JSON.",
+          "refusal": null,
+          "role": "assistant",
+          "tool_calls": null
+        },
+        "routed_experts": null,
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "created": 1792074478,
+    "ec_transfer_params": null,
+    "id": "chatcmpl-a6edd3af13aade8b",
+    "kv_transfer_params": null,
+    "metrics": null,
+    "model": "nvidia/nemotron-3-super-120b-a12b",
+    "moderation": null,
+    "object": "chat.completion",
+    "prompt_logprobs": null,
+    "prompt_text": null,
+    "prompt_token_ids": null,
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.1.dev1+g5001743e3-dp2-9bbaa064",
+    "usage": {
+      "completion_tokens": 583,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": null,
+        "reasoning_tokens": 398,
+        "rejected_prediction_tokens": null
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 681,
+      "prompt_tokens": 681,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cached_tokens": 0,
+        "created_cache_tokens": 0,
+        "multimodal_tokens": null
+      },
+      "total_tokens": 1264
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "recorded": true,
+  "request": {
+    "include_domains": [
+      "curia.europa.eu",
+      "eur-lex.europa.eu"
+    ],
+    "max_results": 5,
+    "query": "CJEU Sturgeon C-402/07 three hours or more"
+  },
+  "response": {
+    "answer": null,
+    "follow_up_questions": null,
+    "images": [],
+    "query": "CJEU Sturgeon C-402/07 three hours or more",
+    "request_id": "f58d5f76-aeb8-4241-987a-9e50e3c98c43",
+    "response_time": 2.26,
+    "results": [
+      {
+        "content": "The Air Passenger Compensation Regulation1 generally grants passengers assistance during a delay to their flight. In its judgment in Sturgeon and Others2, the Court of Justice held moreover that passengers whose flights are delayed may also be compensated, even though the regulation expressly grants a right to compensation only when flights are cancelled, provided that they reach their final destination three hours or more after the scheduled arrival time. Such fixed compensation, of between [...] or more after the scheduled arrival time differently depending on whether their flights were delayed beyond the scheduled departure time by more than the limits set out in the regulation, even though their inconvenience linked to an irreversible loss of time is identical. The Court makes clear in that regard that the fixed compensation to which a passenger is entitled under the regulation, when his flight reaches the final destination three hours or more after the scheduled arrival time, is not [...] of the last flight. Consequently, in the case of directly connecting flights, the fixed compensation must be determined according to the delay beyond the scheduled time of arrival at the final destination, understood as the destination of the last flight taken by the passenger concerned. The opposite approach would constitute an unjustified difference in treatment, inasmuch as it would effectively treat passengers of flights arriving at their final destination three hours or more after the",
+        "id": "db8b7e-00",
+        "raw_content": null,
+        "score": 0.77096564,
+        "title": "Press and Information - curia - European Union",
+        "url": "https://curia.europa.eu/site/upload/docs/application/pdf/2013-02/cp130018en.pdf"
+      },
+      {
+        "content": "In a referral for a preliminary ruling (Joined Cases C-402/07 and C-432/07), the Court of Justice of the European Union clarified that when passengers reach their final destination 3 hours or more after the scheduled arrival time, they (like passengers whose flights are cancelled) may seek flat-rate compensation from the airline, unless the delay is caused by extraordinary circumstances. According to the principle of equal treatment, passengers whose flights are delayed and those whose flights [...] Judgment of the Court (Fourth Chamber) of . Christopher Sturgeon, Gabriel Sturgeon and Alana Sturgeon v Condor Flugdienst GmbH (C-402/07) and Stefan B\u00f6ck and Cornelia Lepuschitz v Air France SA (C-432/07). References for a preliminary ruling: Bundesgerichtshof \u2014 Germany and Handelsgericht Wien \u2014 Austria. Air transport \u2014 Regulation (EC) No 261/2004 \u2014 Article 2(l) and Articles 5, 6 and 7 \u2014 Concept of flight \u2018delay\u2019 and \u2018cancellation\u2019 \u2014 Right to compensation in the event of delay \u2014 Concept of [...] delay \u2014 Concept of \u2018extraordinary circumstances\u2019. Joined cases C-402/07 and C-432/07.",
+        "id": "c49870-01",
+        "raw_content": null,
+        "score": 0.7373288,
+        "title": "EU air passenger rights in case of denied boarding, a delayed flight or a cancelled flight | EUR-Lex",
+        "url": "https://eur-lex.europa.eu/EN/legal-content/summary/eu-air-passenger-rights-in-case-of-denied-boarding-a-delayed-flight-or-a-cancelled-flight.html"
+      },
+      {
+        "content": "consequences in the case of certain flights which are delayed for two hours, Recital 15 necessarily covers delays of three hours or more. 63.",
+        "id": "f1ccd8-02",
+        "raw_content": null,
+        "score": 0.70067,
+        "title": "joined cases c-402/07 and c-432/07 - EUR-Lex",
+        "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF?uri=CELEX%3A62007CJ0402"
+      },
+      {
+        "content": "Court held that if passengers reach their final destination three hours or more after the arrival time originally scheduled, they may claim fixed compensation from the airline, unless the delay is caused by extraordinary circumstances. The Amtsgericht K\u00f6ln (Local Court, Cologne) and the High Court of Justice (England and Wales) seek clarification concerning the scope of the judgment in Sturgeon and Others. In the first case (C-581/10), the German Court is hearing a dispute between passengers [...] as being in comparable situations as regards the application of their right to compensation, because those passengers suffer similar inconvenience, namely, a loss of time. Since passengers whose flights are cancelled are entitled to compensation where their loss of time is equal to or in excess of three hours, the Court finds that passengers whose flights are delayed may also rely on that right where, on account of a delay to their flight, they suffer the same loss of time, that is, where they [...] that is, where they reach their final destination three hours or more after the arrival time originally scheduled by the air carrier. Nevertheless, in adopting Regulation No 261/2004, the EU legislature was seeking to strike a balance between the interests of air passengers and those of air carriers. Accordingly, such a delay does not entitle passengers to compensation if the air carrier can prove that the long delay is caused by extraordinary circumstances which could not have been avoided",
+        "id": "996e75-03",
+        "raw_content": null,
+        "score": 0.68064564,
+        "title": "Court of Justice of the European Union PRESS RELEASE No ...",
+        "url": "https://curia.europa.eu/jcms/upload/docs/application/pdf/2012-10/cp120135en.pdf"
+      },
+      {
+        "content": "Judgment of the Court (Fourth Chamber) of 19 November 2009.#Christopher Sturgeon, Gabriel Sturgeon and Alana Sturgeon v Condor Flugdienst GmbH (C-402/07)",
+        "id": "b98d0d-04",
+        "raw_content": null,
+        "score": 0.5315261,
+        "title": "62007CJ0402 - EN - EUR-Lex - European Union",
+        "url": "https://eur-lex.europa.eu/legal-content/EN/TXT?uri=celex%3A62007CJ0402"
+      }
+    ]
+  }
+}

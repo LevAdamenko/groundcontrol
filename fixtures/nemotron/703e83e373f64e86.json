@@ -1,0 +1,71 @@
+{
+  "recorded": true,
+  "request": {
+    "messages": [
+      {
+        "content": "You are an assistant drafting a concise, factual narrative statement of what happened for a flight disruption claim. Write 2\u20134 sentences in the first person. State only the facts of the disruption. Do not mention any euro amounts, do not include legal citations or references to regulations, and make no promises. Write only the paragraph, without greetings, pleasantries, or sign-offs. Use every number exactly as given, with its unit; never turn an arrival delay into a departure delay or days into hours.",
+        "role": "system"
+      },
+      {
+        "content": "Flight VQ507 operated by VQ from WAW to JFK. Disruption type: delay. Stated reason: CREW SHORTAGE DUE TO ROSTERING MISTAKE. Arrival at the final destination was 210 minutes (3 h 30 min) later than scheduled. Scheduled departure: 2026-08-05T12:00:00.",
+        "role": "user"
+      }
+    ],
+    "model": "nvidia/nemotron-3-super-120b-a12b"
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "annotations": null,
+          "audio": null,
+          "content": "\n\nI was scheduled to depart Warsaw (WAW) on flight VQ507 operated by VQ at 2026-08-05T12:00:00 bound for New York (JFK). The flight was delayed due to a crew shortage caused by a rostering mistake, and I arrived at JFK 210 minutes (3\u202fh\u202f30\u202fmin) later than the scheduled arrival time.",
+          "function_call": null,
+          "reasoning": "We need to produce 2-4 sentences, first person, stating only facts of disruption. No euros, no legal citations, no promises. Must use numbers exactly as given, with units. The data: Flight VQ507 operated by VQ from WAW to JFK. Disruption type: delay. Reason: CREW SHORTAGE DUE TO ROSTERING MISTAKE. Arrival at final destination was 210 minutes (3 h 30 min) later than scheduled. Scheduled departure: 2026-08-05T12:00:00.\n\nWe must state these facts. We can say: \"I was booked on flight VQ507...\" etc. Need to keep it concise 2-4 sentences. Include all numbers exactly as given with units: 210 minutes (3 h 30 min). Also date-time format? Should we repeat that exact string? Probably yes: \"Scheduled departure: 2026-08-05T12:00:00.\" That includes colon and T. Keep same formatting.\n\nDo not convert arrival delay to departure delay. So just state arrival delay.\n\nWrite something like: \"I was scheduled to depart Warsaw (WAW) on flight VQ507 operated by VQ at 2026-08-05T12:00:00 bound for New York (JFK). The flight was delayed due to a crew shortage caused by a rostering mistake, and I arrived at JFK 210 minutes (3 h 30 min) later than the scheduled arrival time.\"\n\nThat's two sentences. Ensure we used numbers exactly: 210 minutes (3 h 30 min). Good. Did we add extra numbers? Not besides those. Avoid adding other numbers like maybe we said \"two\" but that is word not numeric. It says \"Use every number exactly as given, with its unit\". Words like \"two\" okay because they aren't numbers. But better avoid numeric words if uncertain. Could be safe to avoid writing numbers in words except when needed? Might be okay. Let's stick to minimal.\n\nMake sure not to mention any euro amounts, legal citations, promises. Good.\n\nNow output only the paragraph.",
+          "reasoning_content": "We need to produce 2-4 sentences, first person, stating only facts of disruption. No euros, no legal citations, no promises. Must use numbers exactly as given, with units. The data: Flight VQ507 operated by VQ from WAW to JFK. Disruption type: delay. Reason: CREW SHORTAGE DUE TO ROSTERING MISTAKE. Arrival at final destination was 210 minutes (3 h 30 min) later than scheduled. Scheduled departure: 2026-08-05T12:00:00.\n\nWe must state these facts. We can say: \"I was booked on flight VQ507...\" etc. Need to keep it concise 2-4 sentences. Include all numbers exactly as given with units: 210 minutes (3 h 30 min). Also date-time format? Should we repeat that exact string? Probably yes: \"Scheduled departure: 2026-08-05T12:00:00.\" That includes colon and T. Keep same formatting.\n\nDo not convert arrival delay to departure delay. So just state arrival delay.\n\nWrite something like: \"I was scheduled to depart Warsaw (WAW) on flight VQ507 operated by VQ at 2026-08-05T12:00:00 bound for New York (JFK). The flight was delayed due to a crew shortage caused by a rostering mistake, and I arrived at JFK 210 minutes (3 h 30 min) later than the scheduled arrival time.\"\n\nThat's two sentences. Ensure we used numbers exactly: 210 minutes (3 h 30 min). Good. Did we add extra numbers? Not besides those. Avoid adding other numbers like maybe we said \"two\" but that is word not numeric. It says \"Use every number exactly as given, with its unit\". Words like \"two\" okay because they aren't numbers. But better avoid numeric words if uncertain. Could be safe to avoid writing numbers in words except when needed? Might be okay. Let's stick to minimal.\n\nMake sure not to mention any euro amounts, legal citations, promises. Good.\n\nNow output only the paragraph.",
+          "refusal": null,
+          "role": "assistant",
+          "tool_calls": null
+        },
+        "routed_experts": null,
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "created": 1792074514,
+    "ec_transfer_params": null,
+    "id": "chatcmpl-bcc2a0bf037b5e21",
+    "kv_transfer_params": null,
+    "metrics": null,
+    "model": "nvidia/nemotron-3-super-120b-a12b",
+    "moderation": null,
+    "object": "chat.completion",
+    "prompt_logprobs": null,
+    "prompt_text": null,
+    "prompt_token_ids": null,
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.1.dev1+g5001743e3-dp2-9bbaa064",
+    "usage": {
+      "completion_tokens": 575,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": null,
+        "reasoning_tokens": 480,
+        "rejected_prediction_tokens": null
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 209,
+      "prompt_tokens": 209,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cached_tokens": 0,
+        "created_cache_tokens": 0,
+        "multimodal_tokens": null
+      },
+      "total_tokens": 784
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "recorded": true,
+  "request": {
+    "messages": [
+      {
+        "content": "You are an assistant drafting a concise, factual narrative statement of what happened for a flight disruption claim. Write 2\u20134 sentences in the first person. State only the facts of the disruption. Do not mention any euro amounts, do not include legal citations or references to regulations, and make no promises. Write only the paragraph, without greetings, pleasantries, or sign-offs. Use every number exactly as given, with its unit; never turn an arrival delay into a departure delay or days into hours.",
+        "role": "system"
+      },
+      {
+        "content": "Flight VQ202 operated by Vistula Air from WAW to CDG. Disruption type: delay. Stated reason: technical fault with the aircraft hydraulic system discovered before takeoff. Arrival at the final destination was 220 minutes (3 h 40 min) later than scheduled. Scheduled departure: 2026-06-10T14:00:00.",
+        "role": "user"
+      }
+    ],
+    "model": "nvidia/nemotron-3-super-120b-a12b"
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "annotations": null,
+          "audio": null,
+          "content": "\n\nI was booked on flight VQ202 operated by Vistula Air departing from Warsaw (WAW) bound for Paris\u2011Charles de Gaulle (CDG). Before takeoff a technical fault with the aircraft hydraulic system was identified, causing a delay. As a result, I arrived at the final destination 220 minutes (3 h 40 min) later than the scheduled arrival time based on the planned departure of 2026-06-10T14:00:00.",
+          "function_call": null,
+          "reasoning": "We need to write 2-4 sentences, first person, stating only facts of disruption. No euros, no legal citations, no promises. Must use numbers exactly as given, with units. The data:\n\n- Flight VQ202 operated by Vistula Air from WAW to CDG.\n- Disruption type: delay.\n- Reason: technical fault with the aircraft hydraulic system discovered before takeoff.\n- Arrival at final destination was 220 minutes (3 h 40 min) later than scheduled.\n- Scheduled departure: 2026-06-10T14:00:00.\n\nWe must state these facts. We can say \"I was on flight VQ202...\" etc. Should we mention both minute representation? It says \"Arrival at the final destination was 220 minutes (3 h 40 min) later than scheduled.\" So we should keep that exact phrase maybe. But we could rephrase but must preserve numbers exactly as given, with its unit. Means if we refer to 220 minutes, we must keep \"220 minutes\". Also we may also note \"(3 h 40 min)\" is part of same sentence; it's okay to repeat as given. Ensure we don't convert arrival delay to departure delay. Keep as arrival delay.\n\nWrite 2-4 sentences. Let's produce three sentences.\n\nSentence 1: I was booked on flight VQ202 operated by Vistula Air departing from Warsaw (WAW) bound for Paris\u2011Charles de Gaulle (CDG). Sentence 2: Before takeoff a technical fault with the aircraft hydraulic system was identified, causing a delay. Sentence 3: As a result, I arrived at the final destination 220 minutes (3 h 40 min) later than the scheduled arrival time based on the planned departure of 2026-06-10T14:00:00.\n\nCheck: Did we mention scheduled departure correctly? Yes. Not converting anything. All numbers used: 220 minutes, (3 h 40 min), date-time string unchanged. Good.\n\nMake sure no extra numbers like \"two\" etc. Avoid other numbers inadvertently. Only those numbers appear. Need to be careful not to add extra numbers like \"I was booked on flight VQ202\" includes \"VQ202\" which is alphanumeric but fine. No other numeric values. Ensure we didn't accidentally add \"1\" etc. The sentence \"I was booked on flight VQ202 operated by Vistula Air departing from Warsaw (WAW) bound for Paris\u2011Charles de Gaulle (CDG).\" Contains no numbers besides flight code and airport codes. That's fine.\n\nSecond sentence: \"Before takeoff a technical fault with the aircraft hydraulic system was identified, causing a delay.\" No numbers.\n\nThird sentence: \"As a result, I arrived at the final destination 220 minutes (3 h 40 min) later than the scheduled arrival time based on the planned departure of 2026-06-10T14:00:00.\" Contains the required numbers.\n\nAll good.",
+          "reasoning_content": "We need to write 2-4 sentences, first person, stating only facts of disruption. No euros, no legal citations, no promises. Must use numbers exactly as given, with units. The data:\n\n- Flight VQ202 operated by Vistula Air from WAW to CDG.\n- Disruption type: delay.\n- Reason: technical fault with the aircraft hydraulic system discovered before takeoff.\n- Arrival at final destination was 220 minutes (3 h 40 min) later than scheduled.\n- Scheduled departure: 2026-06-10T14:00:00.\n\nWe must state these facts. We can say \"I was on flight VQ202...\" etc. Should we mention both minute representation? It says \"Arrival at the final destination was 220 minutes (3 h 40 min) later than scheduled.\" So we should keep that exact phrase maybe. But we could rephrase but must preserve numbers exactly as given, with its unit. Means if we refer to 220 minutes, we must keep \"220 minutes\". Also we may also note \"(3 h 40 min)\" is part of same sentence; it's okay to repeat as given. Ensure we don't convert arrival delay to departure delay. Keep as arrival delay.\n\nWrite 2-4 sentences. Let's produce three sentences.\n\nSentence 1: I was booked on flight VQ202 operated by Vistula Air departing from Warsaw (WAW) bound for Paris\u2011Charles de Gaulle (CDG). Sentence 2: Before takeoff a technical fault with the aircraft hydraulic system was identified, causing a delay. Sentence 3: As a result, I arrived at the final destination 220 minutes (3 h 40 min) later than the scheduled arrival time based on the planned departure of 2026-06-10T14:00:00.\n\nCheck: Did we mention scheduled departure correctly? Yes. Not converting anything. All numbers used: 220 minutes, (3 h 40 min), date-time string unchanged. Good.\n\nMake sure no extra numbers like \"two\" etc. Avoid other numbers inadvertently. Only those numbers appear. Need to be careful not to add extra numbers like \"I was booked on flight VQ202\" includes \"VQ202\" which is alphanumeric but fine. No other numeric values. Ensure we didn't accidentally add \"1\" etc. The sentence \"I was booked on flight VQ202 operated by Vistula Air departing from Warsaw (WAW) bound for Paris\u2011Charles de Gaulle (CDG).\" Contains no numbers besides flight code and airport codes. That's fine.\n\nSecond sentence: \"Before takeoff a technical fault with the aircraft hydraulic system was identified, causing a delay.\" No numbers.\n\nThird sentence: \"As a result, I arrived at the final destination 220 minutes (3 h 40 min) later than the scheduled arrival time based on the planned departure of 2026-06-10T14:00:00.\" Contains the required numbers.\n\nAll good.",
+          "refusal": null,
+          "role": "assistant",
+          "tool_calls": null
+        },
+        "routed_experts": null,
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "created": 1792074491,
+    "ec_transfer_params": null,
+    "id": "chatcmpl-99fe5eb0b7845016",
+    "kv_transfer_params": null,
+    "metrics": null,
+    "model": "nvidia/nemotron-3-super-120b-a12b",
+    "moderation": null,
+    "object": "chat.completion",
+    "prompt_logprobs": null,
+    "prompt_text": null,
+    "prompt_token_ids": null,
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.1.dev1+g5001743e3-dp2-9bbaa064",
+    "usage": {
+      "completion_tokens": 780,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": null,
+        "reasoning_tokens": 670,
+        "rejected_prediction_tokens": null
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 207,
+      "prompt_tokens": 207,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cached_tokens": 0,
+        "created_cache_tokens": 0,
+        "multimodal_tokens": null
+      },
+      "total_tokens": 987
+    }
+  }
+}

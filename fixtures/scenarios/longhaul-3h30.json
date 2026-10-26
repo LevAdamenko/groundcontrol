@@ -1,0 +1,10 @@
+{
+  "id": "longhaul-3h30",
+  "title": "WAW to JFK delay 3h30 due to crew shortage",
+  "input_text": "BOARDING PASS DUMP:\nPASSENGER: KATARZYNA WOJCIK\nFLIGHT: VQ507 / OPERATED BY: VISTULA AIR\nDATE: 05AUG2026\nFROM: WAW (WARSAW CHOPIN)\nTO: JFK (NEW YORK JOHN F KENNEDY)\nSTD: 12:00 / STA: 15:30\nACTUAL ARRIVAL: 19:00 (ATA)\nDISRUPTION: DELAY (ARRIVAL DELAY 210 MIN / 3 HOURS 30 MINUTES)\nREASON: CREW SHORTAGE DUE TO ROSTERING MISTAKE\nNOTE: Seeking compensation for long-haul arrival delay.",
+  "expected": {
+    "applies": true,
+    "amount": 300,
+    "disputed": false
+  }
+}

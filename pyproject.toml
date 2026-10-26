@@ -1,0 +1,29 @@
+[project]
+name = "groundcontrol"
+version = "0.1.0"
+description = "Deterministic EU261 flight disruption rights calculator and claim drafter"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "httpx",
+    "fastapi",
+    "uvicorn",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-p no:cacheprovider"
+
+[tool.setuptools.package-data]
+groundcontrol = ["static/*.html"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["groundcontrol*"]

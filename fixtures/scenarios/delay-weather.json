@@ -1,0 +1,10 @@
+{
+  "id": "delay-weather",
+  "title": "WAW to JFK delay 5h due to thunderstorm",
+  "input_text": "Dear Vistula Air Team,\n\nI am writing regarding flight VQ505 from Warsaw (WAW) to New York (JFK) on July 20, 2026. Passenger name: Piotr Wi\u015bniewski.\nScheduled departure was 11:00 with scheduled arrival at JFK at 14:45. However, our arrival was delayed by 5 hours (300 minutes), finally arriving at 19:45. The captain stated the delay was caused by severe thunderstorm and lightning along the transatlantic flight route.",
+  "expected": {
+    "applies": true,
+    "amount": 600,
+    "disputed": true
+  }
+}

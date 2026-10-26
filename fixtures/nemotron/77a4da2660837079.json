@@ -1,0 +1,74 @@
+{
+  "recorded": true,
+  "request": {
+    "messages": [
+      {
+        "content": "You are a flight disruption analyzer for EU261 passenger claims. Extract the flight facts from the input text into a strict JSON object.\nAll 15 keys must always be present in the output JSON object; use null when a value is unknown or unstated.\n\nSchema and Field Definitions:\n- flight_number: string or null (e.g. 'VQ101')\n- carrier: string or null (operating carrier code or name, e.g. 'VQ' or 'Vistula Air')\n- departure_airport: string or null (3-letter IATA code uppercase, e.g. 'WAW')\n- arrival_airport: string or null (3-letter IATA code uppercase, e.g. 'CDG')\n- scheduled_departure: string or null (local time ISO-8601, e.g. '2026-05-15T10:00:00')\n- scheduled_arrival: string or null (local time ISO-8601, e.g. '2026-05-15T13:30:00')\n- actual_arrival: string or null (local time ISO-8601, e.g. '2026-05-15T17:10:00')\n- disruption_type: string or null ('delay' or 'cancellation')\n- stated_reason: string or null (stated disruption reason)\n- notice_days: integer or null (days between notice and scheduled departure only if stated)\n- reroute_departs_early_min: integer or null (minutes departed early on reroute)\n- reroute_arrives_late_min: integer or null (minutes arrived late on reroute)\n- departure_delay_min: integer or null (departure delay in minutes)\n- arrival_delay_min: integer or null (compute arrival_delay_min only if both scheduled and actual arrival are stated)\n- passenger_name: string or null\n\nRules:\n1. Exact JSON schema: all 15 keys must always be present (null when unknown).\n2. IATA codes uppercase.\n3. Times ISO-8601 local.\n4. Integers for minutes/days.\n5. Compute arrival_delay_min only if both scheduled and actual arrival are stated.\n6. Never guess.\n7. notice_days = days between notice and scheduled departure only if stated.\n8. No prose / no markdown. Respond with only the JSON object.",
+        "role": "system"
+      },
+      {
+        "content": "Customer Claim Enquiry:\nPassenger Name: Marek Zieli\u0144ski\nFlight GH901 from Dubai (DXB) to Warsaw (WAW), operated by Gulf Horizon on September 12, 2026.\nScheduled departure: 08:00, scheduled arrival: 12:30.\nActual arrival in Warsaw: 18:30 (6 hours / 360 minutes late).\nDisruption: Long delay. Reason given by carrier: Aircraft turnaround delay in Dubai.\nDoes EU261 compensation apply to this flight?",
+        "role": "user"
+      }
+    ],
+    "model": "nvidia/nemotron-3-super-120b-a12b",
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "annotations": null,
+          "audio": null,
+          "content": "{\"flight_number\": \"GH901\", \"carrier\": \"GH\", \"departure_airport\": \"DXB\", \"arrival_airport\": \"WAW\", \"scheduled_departure\": \"2026-09-12T08:00:00\", \"scheduled_arrival\": \"2026-09-12T12:30:00\", \"actual_arrival\": \"2026-09-12T18:30:00\", \"disruption_type\": \"delay\", \"stated_reason\": \"Aircraft turnaround delay in Dubai.\", \"notice_days\": null, \"reroute_departs_early_min\": null, \"reroute_arrives_late_min\": null, \"departure_delay_min\": null, \"arrival_delay_min\": 360, \"passenger_name\": \"Marek Zieli\u0144ski\"}",
+          "function_call": null,
+          "reasoning": "We need to extract fields:\n\nGiven info:\n- Passenger Name: Marek Zieli\u0144ski -> passenger_name \"Marek Zieli\u0144ski\"\n- Flight number: GH901\n- Carrier: Gulf Horizon (carrier could be code? It says operated by Gulf Horizon. Could give carrier as \"GH\" maybe but we have flight number GH901 so carrier likely \"GH\". We'll set carrier \"GH\".\n- Departure airport: DXB (Dubai). Uppercase.\n- Arrival airport: WAW (Warsaw). Uppercase.\n- Scheduled departure: date September 12, 2026 at 08:00 local time. Need ISO-8601 local: \"2026-09-12T08:00:00\".\n- Scheduled arrival: same date at 12:30 => \"2026-09-12T12:30:00\".\n- Actual arrival: 18:30 same day => \"2026-09-12T18:30:00\".\n- Disruption type: long delay => \"delay\".\n- Stated reason: \"Aircraft turnaround delay in Dubai.\"\n- Notice days: Not mentioned any notice before departure. So null.\n- Reroute departs early min: not applicable => null.\n- Reroute arrives late min: not applicable => null.\n- Departure delay minute: Not provided directly. Only actual arrival given. We don't have actual departure time. So cannot compute departure delay. Use null.\n- Arrival delay minute: compute if both scheduled and actual arrival stated. Yes we have both. Difference: scheduled arrival 12:30, actual 18:30 => 6 hours = 360 minutes. So arrival_delay_min = 360.\n- passenger_name already.\n\nCheck other constraints: All 15 keys present.\n\nList keys order doesn't matter but include all.\n\nNow produce JSON exactly.\n\nMake sure strings quoted properly, null values.\n\nLet's craft:\n\n{\n  \"flight_number\": \"GH901\",\n  \"carrier\": \"GH\",\n  \"departure_airport\": \"DXB\",\n  \"arrival_airport\": \"WAW\",\n  \"scheduled_departure\": \"2026-09-12T08:00:00\",\n  \"scheduled_arrival\": \"2026-09-12T12:30:00\",\n  \"actual_arrival\": \"2026-09-12T18:30:00\",\n  \"disruption_type\": \"delay\",\n  \"stated_reason\": \"Aircraft turnaround delay in Dubai.\",\n  \"notice_days\": null,\n  \"reroute_departs_early_min\": null,\n  \"reroute_arrives_late_min\": null,\n  \"departure_delay_min\": null,\n  \"arrival_delay_min\": 360,\n  \"passenger_name\": \"Marek Zieli\u0144ski\"\n}\n\nCheck that times are local (no timezone). Good.\n\nReturn just JSON.",
+          "reasoning_content": "We need to extract fields:\n\nGiven info:\n- Passenger Name: Marek Zieli\u0144ski -> passenger_name \"Marek Zieli\u0144ski\"\n- Flight number: GH901\n- Carrier: Gulf Horizon (carrier could be code? It says operated by Gulf Horizon. Could give carrier as \"GH\" maybe but we have flight number GH901 so carrier likely \"GH\". We'll set carrier \"GH\".\n- Departure airport: DXB (Dubai). Uppercase.\n- Arrival airport: WAW (Warsaw). Uppercase.\n- Scheduled departure: date September 12, 2026 at 08:00 local time. Need ISO-8601 local: \"2026-09-12T08:00:00\".\n- Scheduled arrival: same date at 12:30 => \"2026-09-12T12:30:00\".\n- Actual arrival: 18:30 same day => \"2026-09-12T18:30:00\".\n- Disruption type: long delay => \"delay\".\n- Stated reason: \"Aircraft turnaround delay in Dubai.\"\n- Notice days: Not mentioned any notice before departure. So null.\n- Reroute departs early min: not applicable => null.\n- Reroute arrives late min: not applicable => null.\n- Departure delay minute: Not provided directly. Only actual arrival given. We don't have actual departure time. So cannot compute departure delay. Use null.\n- Arrival delay minute: compute if both scheduled and actual arrival stated. Yes we have both. Difference: scheduled arrival 12:30, actual 18:30 => 6 hours = 360 minutes. So arrival_delay_min = 360.\n- passenger_name already.\n\nCheck other constraints: All 15 keys present.\n\nList keys order doesn't matter but include all.\n\nNow produce JSON exactly.\n\nMake sure strings quoted properly, null values.\n\nLet's craft:\n\n{\n  \"flight_number\": \"GH901\",\n  \"carrier\": \"GH\",\n  \"departure_airport\": \"DXB\",\n  \"arrival_airport\": \"WAW\",\n  \"scheduled_departure\": \"2026-09-12T08:00:00\",\n  \"scheduled_arrival\": \"2026-09-12T12:30:00\",\n  \"actual_arrival\": \"2026-09-12T18:30:00\",\n  \"disruption_type\": \"delay\",\n  \"stated_reason\": \"Aircraft turnaround delay in Dubai.\",\n  \"notice_days\": null,\n  \"reroute_departs_early_min\": null,\n  \"reroute_arrives_late_min\": null,\n  \"departure_delay_min\": null,\n  \"arrival_delay_min\": 360,\n  \"passenger_name\": \"Marek Zieli\u0144ski\"\n}\n\nCheck that times are local (no timezone). Good.\n\nReturn just JSON.",
+          "refusal": null,
+          "role": "assistant",
+          "tool_calls": null
+        },
+        "routed_experts": null,
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "created": 1792074518,
+    "ec_transfer_params": null,
+    "id": "chatcmpl-86a5326e4f0c0fc9",
+    "kv_transfer_params": null,
+    "metrics": null,
+    "model": "nvidia/nemotron-3-super-120b-a12b",
+    "moderation": null,
+    "object": "chat.completion",
+    "prompt_logprobs": null,
+    "prompt_text": null,
+    "prompt_token_ids": null,
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.1.dev1+g5001743e3-dp2-9bbaa064",
+    "usage": {
+      "completion_tokens": 882,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": null,
+        "reasoning_tokens": 677,
+        "rejected_prediction_tokens": null
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 653,
+      "prompt_tokens": 653,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cached_tokens": 0,
+        "created_cache_tokens": 0,
+        "multimodal_tokens": null
+      },
+      "total_tokens": 1535
+    }
+  }
+}

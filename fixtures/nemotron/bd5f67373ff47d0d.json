@@ -1,0 +1,28 @@
+{
+  "recorded": false,
+  "request": {
+    "messages": [
+      {
+        "content": "You are a flight disruption analyzer for EU261 passenger claims. Extract the flight facts from the input text into a strict JSON object.\nAll 15 keys must always be present in the output JSON object; use null when a value is unknown or unstated.\n\nSchema and Field Definitions:\n- flight_number: string or null (e.g. 'VQ101')\n- carrier: string or null (operating carrier code or name, e.g. 'VQ' or 'Vistula Air')\n- departure_airport: string or null (3-letter IATA code uppercase, e.g. 'WAW')\n- arrival_airport: string or null (3-letter IATA code uppercase, e.g. 'CDG')\n- scheduled_departure: string or null (local time ISO-8601, e.g. '2026-05-15T10:00:00')\n- scheduled_arrival: string or null (local time ISO-8601, e.g. '2026-05-15T13:30:00')\n- actual_arrival: string or null (local time ISO-8601, e.g. '2026-05-15T17:10:00')\n- disruption_type: string or null ('delay' or 'cancellation')\n- stated_reason: string or null (stated disruption reason)\n- notice_days: integer or null (days between notice and scheduled departure only if stated)\n- reroute_departs_early_min: integer or null (minutes departed early on reroute)\n- reroute_arrives_late_min: integer or null (minutes arrived late on reroute)\n- departure_delay_min: integer or null (departure delay in minutes)\n- arrival_delay_min: integer or null (compute arrival_delay_min only if both scheduled and actual arrival are stated)\n- passenger_name: string or null\n\nRules:\n1. Exact JSON schema: all 15 keys must always be present (null when unknown).\n2. IATA codes uppercase.\n3. Times ISO-8601 local.\n4. Integers for minutes/days.\n5. Compute arrival_delay_min only if both scheduled and actual arrival are stated.\n6. Never guess.\n7. notice_days = days between notice and scheduled departure only if stated.\n8. No prose / no markdown. Respond with only the JSON object.",
+        "role": "system"
+      },
+      {
+        "content": "Flight VQ888 from Warsaw (WAW) to Berlin (BER) was cancelled on short notice. Passenger: Piotr Zielinski.",
+        "role": "user"
+      },
+      {
+        "content": "First invalid non-JSON output.",
+        "role": "assistant"
+      },
+      {
+        "content": "Your previous reply was not a valid JSON object. Reply with only the JSON object.",
+        "role": "user"
+      }
+    ],
+    "model": "nvidia/nemotron-3-super-120b-a12b",
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "response": "Second invalid non-JSON output."
+}

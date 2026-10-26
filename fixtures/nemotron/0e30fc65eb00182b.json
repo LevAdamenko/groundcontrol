@@ -1,0 +1,71 @@
+{
+  "recorded": true,
+  "request": {
+    "messages": [
+      {
+        "content": "You are an assistant drafting a concise, factual narrative statement of what happened for a flight disruption claim. Write 2\u20134 sentences in the first person. State only the facts of the disruption. Do not mention any euro amounts, do not include legal citations or references to regulations, and make no promises. Write only the paragraph, without greetings, pleasantries, or sign-offs. Use every number exactly as given, with its unit; never turn an arrival delay into a departure delay or days into hours.",
+        "role": "system"
+      },
+      {
+        "content": "Flight VQ401 operated by Vistula Air from WAW to LIS. Disruption type: cancellation. Stated reason: operational reorganization. The passenger was informed of the cancellation 5 days before the scheduled departure. Scheduled departure: 2026-05-15T10:00:00.",
+        "role": "user"
+      }
+    ],
+    "model": "nvidia/nemotron-3-super-120b-a12b"
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "annotations": null,
+          "audio": null,
+          "content": "\n\nI was scheduled to travel on flight VQ401 operated by Vistula Air from Warsaw (WAW) to Lisbon (LIS) with a departure time of 2026-05-15T10:00:00. I received notice of the cancellation 5 days before the scheduled departure, and the airline cited operational reorganization as the reason.",
+          "function_call": null,
+          "reasoning": "We need to write a concise factual narrative statement (first person) describing the disruption. Must be 2-4 sentences. No euros, no legal citations, no promises. Only facts. Use numbers exactly as given, with units. We have:\n\n- Flight VQ401 operated by Vistula Air from WAW to LIS.\n- Disruption type: cancellation.\n- Reason: operational reorganization.\n- Passenger was informed of the cancellation 5 days before the scheduled departure.\n- Scheduled departure: 2026-05-15T10:00:00.\n\nWe must use each number exactly as given, with its unit. Numbers present: \"VQ401\" is alphanumeric but includes digits? It's part of flight code; we should keep it unchanged. Also \"WAW\", \"LIS\". Not numeric. Number \"5 days\". So we need to say \"5 days\". Ensure we don't change that. Also date-time format: \"2026-05-15T10:00:00\". That's a timestamp. Should we treat as a number? Probably just copy it verbatim. Avoid turning arrival delay into departure delay etc. There's no delays mentioned. Just schedule.\n\nWrite something like: \"I was booked on flight VQ401 operated by Vistula Air departing Warsaw (WAW) at 2026-05-15T10:00:00 bound for Lisbon (LIS). Five days before the scheduled departure, I was notified that the flight had been cancelled due to operational reorganization.\" That's two sentences. Need to ensure we used \"five days\"? But they said \"5 days\". They want exact number usage: \"5 days\". So we must write \"5 days\". Not spelled out. So sentence: \"Five days before...\" would violate because uses word \"Five\". Must use numeral \"5\". So phrase: \"5 days before the scheduled departure\". Good.\n\nThus final answer: maybe two sentences.\n\nCheck constraints: No greetings, pleasantries, sign-offs. Just paragraph. Provide only the paragraph. Let's produce:\n\n\"I was scheduled to travel on flight VQ401 operated by Vistula Air from Warsaw (WAW) to Lisbon (LIS) with a departure time of 2026-05-15T10:00:00. I received notice of the cancellation 5 days before the scheduled departure, and the airline cited operational reorganization as the reason.\"\n\nThat's two sentences, first-person, factual, no extra content. All numbers used exactly: VQ401, WAW, LIS, 2026-05-15T10:00:00, 5 days. Good.",
+          "reasoning_content": "We need to write a concise factual narrative statement (first person) describing the disruption. Must be 2-4 sentences. No euros, no legal citations, no promises. Only facts. Use numbers exactly as given, with units. We have:\n\n- Flight VQ401 operated by Vistula Air from WAW to LIS.\n- Disruption type: cancellation.\n- Reason: operational reorganization.\n- Passenger was informed of the cancellation 5 days before the scheduled departure.\n- Scheduled departure: 2026-05-15T10:00:00.\n\nWe must use each number exactly as given, with its unit. Numbers present: \"VQ401\" is alphanumeric but includes digits? It's part of flight code; we should keep it unchanged. Also \"WAW\", \"LIS\". Not numeric. Number \"5 days\". So we need to say \"5 days\". Ensure we don't change that. Also date-time format: \"2026-05-15T10:00:00\". That's a timestamp. Should we treat as a number? Probably just copy it verbatim. Avoid turning arrival delay into departure delay etc. There's no delays mentioned. Just schedule.\n\nWrite something like: \"I was booked on flight VQ401 operated by Vistula Air departing Warsaw (WAW) at 2026-05-15T10:00:00 bound for Lisbon (LIS). Five days before the scheduled departure, I was notified that the flight had been cancelled due to operational reorganization.\" That's two sentences. Need to ensure we used \"five days\"? But they said \"5 days\". They want exact number usage: \"5 days\". So we must write \"5 days\". Not spelled out. So sentence: \"Five days before...\" would violate because uses word \"Five\". Must use numeral \"5\". So phrase: \"5 days before the scheduled departure\". Good.\n\nThus final answer: maybe two sentences.\n\nCheck constraints: No greetings, pleasantries, sign-offs. Just paragraph. Provide only the paragraph. Let's produce:\n\n\"I was scheduled to travel on flight VQ401 operated by Vistula Air from Warsaw (WAW) to Lisbon (LIS) with a departure time of 2026-05-15T10:00:00. I received notice of the cancellation 5 days before the scheduled departure, and the airline cited operational reorganization as the reason.\"\n\nThat's two sentences, first-person, factual, no extra content. All numbers used exactly: VQ401, WAW, LIS, 2026-05-15T10:00:00, 5 days. Good.",
+          "refusal": null,
+          "role": "assistant",
+          "tool_calls": null
+        },
+        "routed_experts": null,
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "created": 1792074483,
+    "ec_transfer_params": null,
+    "id": "chatcmpl-ad2f69085e61f1fc",
+    "kv_transfer_params": null,
+    "metrics": null,
+    "model": "nvidia/nemotron-3-super-120b-a12b",
+    "moderation": null,
+    "object": "chat.completion",
+    "prompt_logprobs": null,
+    "prompt_text": null,
+    "prompt_token_ids": null,
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.1.dev1+g5001743e3-dp2-9bbaa064",
+    "usage": {
+      "completion_tokens": 667,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": null,
+        "reasoning_tokens": 585,
+        "rejected_prediction_tokens": null
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 189,
+      "prompt_tokens": 189,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cached_tokens": 0,
+        "created_cache_tokens": 0,
+        "multimodal_tokens": null
+      },
+      "total_tokens": 856
+    }
+  }
+}

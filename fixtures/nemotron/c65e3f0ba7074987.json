@@ -1,0 +1,74 @@
+{
+  "recorded": true,
+  "request": {
+    "messages": [
+      {
+        "content": "You are a flight disruption analyzer for EU261 passenger claims. Extract the flight facts from the input text into a strict JSON object.\nAll 15 keys must always be present in the output JSON object; use null when a value is unknown or unstated.\n\nSchema and Field Definitions:\n- flight_number: string or null (e.g. 'VQ101')\n- carrier: string or null (operating carrier code or name, e.g. 'VQ' or 'Vistula Air')\n- departure_airport: string or null (3-letter IATA code uppercase, e.g. 'WAW')\n- arrival_airport: string or null (3-letter IATA code uppercase, e.g. 'CDG')\n- scheduled_departure: string or null (local time ISO-8601, e.g. '2026-05-15T10:00:00')\n- scheduled_arrival: string or null (local time ISO-8601, e.g. '2026-05-15T13:30:00')\n- actual_arrival: string or null (local time ISO-8601, e.g. '2026-05-15T17:10:00')\n- disruption_type: string or null ('delay' or 'cancellation')\n- stated_reason: string or null (stated disruption reason)\n- notice_days: integer or null (days between notice and scheduled departure only if stated)\n- reroute_departs_early_min: integer or null (minutes departed early on reroute)\n- reroute_arrives_late_min: integer or null (minutes arrived late on reroute)\n- departure_delay_min: integer or null (departure delay in minutes)\n- arrival_delay_min: integer or null (compute arrival_delay_min only if both scheduled and actual arrival are stated)\n- passenger_name: string or null\n\nRules:\n1. Exact JSON schema: all 15 keys must always be present (null when unknown).\n2. IATA codes uppercase.\n3. Times ISO-8601 local.\n4. Integers for minutes/days.\n5. Compute arrival_delay_min only if both scheduled and actual arrival are stated.\n6. Never guess.\n7. notice_days = days between notice and scheduled departure only if stated.\n8. No prose / no markdown. Respond with only the JSON object.",
+        "role": "system"
+      },
+      {
+        "content": "Dear Vistula Air Team,\n\nI am writing regarding flight VQ505 from Warsaw (WAW) to New York (JFK) on July 20, 2026. Passenger name: Piotr Wi\u015bniewski.\nScheduled departure was 11:00 with scheduled arrival at JFK at 14:45. However, our arrival was delayed by 5 hours (300 minutes), finally arriving at 19:45. The captain stated the delay was caused by severe thunderstorm and lightning along the transatlantic flight route.",
+        "role": "user"
+      }
+    ],
+    "model": "nvidia/nemotron-3-super-120b-a12b",
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "annotations": null,
+          "audio": null,
+          "content": "{\"flight_number\": \"VQ505\", \"carrier\": \"VQ\", \"departure_airport\": \"WAW\", \"arrival_airport\": \"JFK\", \"scheduled_departure\": \"2026-07-20T11:00:00\", \"scheduled_arrival\": \"2026-07-20T14:45:00\", \"actual_arrival\": \"2026-07-20T19:45:00\", \"disruption_type\": \"delay\", \"stated_reason\": \"severe thunderstorm and lightning along the transatlantic flight route\", \"notice_days\": null, \"reroute_departs_early_min\": null, \"reroute_arrives_late_min\": null, \"departure_delay_min\": null, \"arrival_delay_min\": 300, \"passenger_name\": \"Piotr Wi\u015bniewski\"}",
+          "function_call": null,
+          "reasoning": "We need to extract fields:\n\nflight_number: \"VQ505\"\ncarrier: operating carrier code or name: likely \"VQ\" or \"Vistula Air\". We have mention of Vistula Air team, so carrier could be \"VQ\" as code? Use either code or name. Probably we can put \"VQ\". Or maybe \"Vistula Air\". Since they said \"Vistula Air Team\", but flight number uses VQ prefix which might be airline code. So carrier: \"VQ\".\n\ndeparture_airport: WAW (uppercase). Arrival airport: JFK.\n\nscheduled_departure: date July 20, 2026, time 11:00 local (Warsaw). Need ISO-8601 local: \"2026-07-20T11:00:00\". Note timezone not included; just local.\n\nscheduled_arrival: same date? Flight from Warsaw to New York, arrival scheduled at 14:45 local time (New York?). They gave scheduled arrival at JFK at 14:45. Likely local New York time. So \"2026-07-20T14:45:00\". Date same day.\n\nactual_arrival: arrival delayed by 5 hours (300 minutes), finally arriving at 19:45. That's local New York time? Yes. So actual arrival: \"2026-07-20T19:45:00\".\n\ndisruption_type: delay (since arrival delayed). Not cancellation.\n\nstated_reason: \"severe thunderstorm and lightning along the transatlantic flight route\"\n\nnotice_days: not mentioned => null.\n\nreroute_departs_early_min: not mentioned => null.\n\nreroute_arrives_late_min: not mentioned => null.\n\ndeparture_delay_min: Not given directly. Only arrival delay given. Could compute departure delay? Not enough info. So null.\n\narrival_delay_min: compute if both scheduled and actual arrival stated. Yes we have both: scheduled 14:45, actual 19:45 => difference 5 hours = 300 minutes. So arrival_delay_min = 300.\n\npassenger_name: Piotr Wi\u015bniewski.\n\nCheck that all keys present.\n\nNow produce JSON exactly with those keys.\n\nOrder doesn't matter but include all.\n\nLet's craft:\n\n{\n  \"flight_number\": \"VQ505\",\n  \"carrier\": \"VQ\",\n  \"departure_airport\": \"WAW\",\n  \"arrival_airport\": \"JFK\",\n  \"scheduled_departure\": \"2026-07-20T11:00:00\",\n  \"scheduled_arrival\": \"2026-07-20T14:45:00\",\n  \"actual_arrival\": \"2026-07-20T19:45:00\",\n  \"disruption_type\": \"delay\",\n  \"stated_reason\": \"severe thunderstorm and lightning along the transatlantic flight route\",\n  \"notice_days\": null,\n  \"reroute_departs_early_min\": null,\n  \"reroute_arrives_late_min\": null,\n  \"departure_delay_min\": null,\n  \"arrival_delay_min\": 300,\n  \"passenger_name\": \"Piotr Wi\u015bniewski\"\n}\n\nMake sure no trailing commas. Provide only JSON.",
+          "reasoning_content": "We need to extract fields:\n\nflight_number: \"VQ505\"\ncarrier: operating carrier code or name: likely \"VQ\" or \"Vistula Air\". We have mention of Vistula Air team, so carrier could be \"VQ\" as code? Use either code or name. Probably we can put \"VQ\". Or maybe \"Vistula Air\". Since they said \"Vistula Air Team\", but flight number uses VQ prefix which might be airline code. So carrier: \"VQ\".\n\ndeparture_airport: WAW (uppercase). Arrival airport: JFK.\n\nscheduled_departure: date July 20, 2026, time 11:00 local (Warsaw). Need ISO-8601 local: \"2026-07-20T11:00:00\". Note timezone not included; just local.\n\nscheduled_arrival: same date? Flight from Warsaw to New York, arrival scheduled at 14:45 local time (New York?). They gave scheduled arrival at JFK at 14:45. Likely local New York time. So \"2026-07-20T14:45:00\". Date same day.\n\nactual_arrival: arrival delayed by 5 hours (300 minutes), finally arriving at 19:45. That's local New York time? Yes. So actual arrival: \"2026-07-20T19:45:00\".\n\ndisruption_type: delay (since arrival delayed). Not cancellation.\n\nstated_reason: \"severe thunderstorm and lightning along the transatlantic flight route\"\n\nnotice_days: not mentioned => null.\n\nreroute_departs_early_min: not mentioned => null.\n\nreroute_arrives_late_min: not mentioned => null.\n\ndeparture_delay_min: Not given directly. Only arrival delay given. Could compute departure delay? Not enough info. So null.\n\narrival_delay_min: compute if both scheduled and actual arrival stated. Yes we have both: scheduled 14:45, actual 19:45 => difference 5 hours = 300 minutes. So arrival_delay_min = 300.\n\npassenger_name: Piotr Wi\u015bniewski.\n\nCheck that all keys present.\n\nNow produce JSON exactly with those keys.\n\nOrder doesn't matter but include all.\n\nLet's craft:\n\n{\n  \"flight_number\": \"VQ505\",\n  \"carrier\": \"VQ\",\n  \"departure_airport\": \"WAW\",\n  \"arrival_airport\": \"JFK\",\n  \"scheduled_departure\": \"2026-07-20T11:00:00\",\n  \"scheduled_arrival\": \"2026-07-20T14:45:00\",\n  \"actual_arrival\": \"2026-07-20T19:45:00\",\n  \"disruption_type\": \"delay\",\n  \"stated_reason\": \"severe thunderstorm and lightning along the transatlantic flight route\",\n  \"notice_days\": null,\n  \"reroute_departs_early_min\": null,\n  \"reroute_arrives_late_min\": null,\n  \"departure_delay_min\": null,\n  \"arrival_delay_min\": 300,\n  \"passenger_name\": \"Piotr Wi\u015bniewski\"\n}\n\nMake sure no trailing commas. Provide only JSON.",
+          "refusal": null,
+          "role": "assistant",
+          "tool_calls": null
+        },
+        "routed_experts": null,
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "created": 1792074496,
+    "ec_transfer_params": null,
+    "id": "chatcmpl-b72a3e7a2c5cb85e",
+    "kv_transfer_params": null,
+    "metrics": null,
+    "model": "nvidia/nemotron-3-super-120b-a12b",
+    "moderation": null,
+    "object": "chat.completion",
+    "prompt_logprobs": null,
+    "prompt_text": null,
+    "prompt_token_ids": null,
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.1.dev1+g5001743e3-dp2-9bbaa064",
+    "usage": {
+      "completion_tokens": 980,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": null,
+        "audio_tokens": null,
+        "reasoning_tokens": 764,
+        "rejected_prediction_tokens": null
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 656,
+      "prompt_tokens": 656,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cached_tokens": 0,
+        "created_cache_tokens": 0,
+        "multimodal_tokens": null
+      },
+      "total_tokens": 1636
+    }
+  }
+}

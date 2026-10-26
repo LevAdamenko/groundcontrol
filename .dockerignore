@@ -1,0 +1,14 @@
+.git
+.venv
+**/__pycache__
+tests
+docs
+scripts
+**/*.pyc
+**/.env*
+**/*secret*
+**/*credential*
+**/*.pem
+**/*.key
+
+data

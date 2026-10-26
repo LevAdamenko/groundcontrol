@@ -1,0 +1,10 @@
+{
+  "id": "delay-3h40",
+  "title": "WAW to CDG delay 3h40 due to technical fault",
+  "input_text": "I am writing to file a compensation claim for flight VQ202 operated by Vistula Air from Warsaw (WAW) to Paris Charles de Gaulle (CDG) on June 10, 2026.\nMy name is Jan Nowak. We were scheduled to depart WAW at 14:00 and arrive in CDG at 16:30. Due to a technical fault with the aircraft hydraulic system discovered before takeoff, our flight was severely delayed. We did not arrive at Paris CDG until 20:10, which is an arrival delay of 3 hours and 40 minutes (220 minutes).",
+  "expected": {
+    "applies": true,
+    "amount": 250,
+    "disputed": false
+  }
+}

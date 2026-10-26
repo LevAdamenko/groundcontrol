@@ -1,0 +1,64 @@
+{
+  "recorded": true,
+  "request": {
+    "include_domains": [
+      "curia.europa.eu",
+      "eur-lex.europa.eu",
+      "europa.eu",
+      "transport.ec.europa.eu",
+      "ulc.gov.pl"
+    ],
+    "max_results": 5,
+    "query": "Regulation 261 2004 EUR 250 Article 7"
+  },
+  "response": {
+    "answer": null,
+    "follow_up_questions": null,
+    "images": [],
+    "query": "Regulation 261 2004 EUR 250 Article 7",
+    "request_id": "af9fdf53-ac75-4545-b61e-382d783f5d0e",
+    "response_time": 2.38,
+    "results": [
+      {
+        "content": "2. In any event, the assistance shall be offered within the time limits set out above with respect to each distance bracket.\n\nArticle 7\n\nRight to compensation\n\n1. Where reference is made to this Article, passengers shall receive compensation amounting to:\n\n(a) EUR 250 for all flights of 1500 kilometres or less;\n\n(b) EUR 400 for all intra-Community flights of more than 1500 kilometres, and for all other flights between 1500 and 3500 kilometres; [...] 2. In any event, the assistance shall be offered within the time limits set out above with respect to each distance bracket.\n\nArticle 7\n\nRight to compensation\n\n1. Where reference is made to this Article, passengers shall receive compensation amounting to:\n\n(a) EUR 250 for all flights of 1500 kilometres or less;\n\n(b) EUR 400 for all intra-Community flights of more than 1500 kilometres, and for all other flights between 1500 and 3500 kilometres; [...] 3. An operating air carrier shall not be obliged to pay compensation in accordance with Article 7, if it can prove that the cancellation is caused by extraordinary circumstances which could not have been avoided even if all reasonable measures had been taken.\n\n4. The burden of proof concerning the questions as to whether and when the passenger has been informed of the cancellation of the flight shall rest with the operating air carrier.\n\nArticle 6\n\nDelay",
+        "id": "a428bd-00",
+        "raw_content": null,
+        "score": 0.8763069,
+        "title": "Regulation - 261/2004 - EN - Flight Compensation Regulation - EUR-Lex",
+        "url": "https://eur-lex.europa.eu/eli/reg/2004/261/oj/eng"
+      },
+      {
+        "content": "2. In any event, the assistance shall be offered within the time limits set out above with respect to each distance bracket.\n\nArticle 7\n\nRight to compensation\n\n1. Where reference is made to this Article, passengers shall receive compensation amounting to:\n\n(a) EUR 250 for all flights of 1500 kilometres or less;\n\n(b) EUR 400 for all intra-Community flights of more than 1500 kilometres, and for all other flights between 1500 and 3500 kilometres; [...] 3. An operating air carrier shall not be obliged to pay compensation in accordance with Article 7, if it can prove that the cancellation is caused by extraordinary circumstances which could not have been avoided even if all reasonable measures had been taken.\n\n4. The burden of proof concerning the questions as to whether and when the passenger has been informed of the cancellation of the flight shall rest with the operating air carrier.\n\nArticle 6\n\nDelay [...] 2. If an insufficient number of volunteers comes forward to allow the remaining passengers with reservations to board the flight, the operating air carrier may then deny boarding to passengers against their will.\n\n3. If boarding is denied to passengers against their will, the operating air carrier shall immediately compensate them in accordance with Article 7 and assist them in accordance with Articles 8 and 9.\n\nArticle 5\n\nCancellation",
+        "id": "b3c553-01",
+        "raw_content": null,
+        "score": 0.86632514,
+        "title": "EUR-Lex - 32004R0261 - EN",
+        "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML?uri=CELEX%3A32004R0261"
+      },
+      {
+        "content": "| 6 | Article 7 of the regulation, headed \u2018Right to compensation\u2019, provides in paragraph 1:  \u2018Where reference is made to this Article, passengers shall receive compensation amounting to:   | (a) | EUR 250 for all flights of 1500 kilometres or less; |  | (b) | EUR 400 for all intra-Community flights of more than 1500 kilometres, and for all other flights between 1500 and 3500 kilometres; |  | (c) | EUR 600 for all flights not falling under (a) or (b). |   \u2026\u2019 |\n\nSwedish law [...] | 12 | Airhelp brought proceedings before the referring court, the Attunda tingsr\u00e4tt (Attunda District Court, Sweden), claiming that it should order SAS to pay it the compensation of EUR 250 provided for in Article 5(1)(c) of Regulation No 261/2004, read in conjunction with Article 7(1)(a) thereof, together with default interest from 10 September 2019 until the date of payment. | [...] | 21 | First of all, it should be recalled that, where a flight is cancelled, Article 5 of Regulation No 261/2004 provides that the passengers concerned have the right to compensation from the operating air carrier, in accordance with Article 7(1) of the regulation, unless they have been informed of the cancellation beforehand within the deadlines laid down in Article 5(1)(c)(i) to (iii). |",
+        "id": "45d8e0-02",
+        "raw_content": null,
+        "score": 0.8156003,
+        "title": "62020CJ0028",
+        "url": "http://publications.europa.eu/resource/celex/62020CJ0028.ENG"
+      },
+      {
+        "content": "Judgment of the Court (Fourth Chamber) of . Christopher Sturgeon, Gabriel Sturgeon and Alana Sturgeon v Condor Flugdienst GmbH (C-402/07) and Stefan B\u00f6ck and Cornelia Lepuschitz v Air France SA (C-432/07). References for a preliminary ruling: Bundesgerichtshof \u2014 Germany and Handelsgericht Wien \u2014 Austria. Air transport \u2014 Regulation (EC) No 261/2004 \u2014 Article 2(l) and Articles 5, 6 and 7 \u2014 Concept of flight \u2018delay\u2019 and \u2018cancellation\u2019 \u2014 Right to compensation in the event of delay \u2014 Concept of [...] ## MAIN DOCUMENT\n\nRegulation (EC) No 261/2004 of the European Parliament and of the Council of establishing common rules on compensation and assistance to passengers in the event of denied boarding and of cancellation or long delay of flights, and repealing Regulation (EEC) No 295/91 (OJ L 46, , pp. 1-8)\n\n## RELATED DOCUMENTS [...] ## SUMMARY OF:\n\nRegulation (EC) No 261/2004 setting out common rules on compensation and assistance to passengers in the event of denied boarding and of cancellation or long delay of flights\n\n## WHAT IS THE AIM OF THE REGULATION?\n\nIt aims to ensure a high level of protection for passengers by setting common rules on compensation and assistance to passengers in the event of denied boarding and of cancellation or long delay of flights.\n\n## KEY POINTS\n\nThis regulation applies to:",
+        "id": "7b2b6a-03",
+        "raw_content": null,
+        "score": 0.55998856,
+        "title": "EU air passenger rights in case of denied boarding, a delayed flight or a cancelled flight | EUR-Lex",
+        "url": "https://eur-lex.europa.eu/EN/legal-content/summary/eu-air-passenger-rights-in-case-of-denied-boarding-a-delayed-flight-or-a-cancelled-flight.html"
+      },
+      {
+        "content": "| Flights \u2264 1 500 km | Flights 1 500-3 500 km Flights EU \u2265 1 500 km | Flights \u2265 3 500 km |\n --- \n| EUR 250 (EUR 125 if rerouted and arriving at their final destination less than two hours late) | EUR 400 (EUR 200 if rerouted and arriving at their final destination less than three hours late) | EUR 600 (EUR 300 if rerouted and arriving at their final destination less than four hours late) | [...] A.\nAir transport: the 2004 regulation on air passenger rights (Regulation (EC) No 261/2004) and the 2006 regulation on the rights of disabled persons and persons with reduced mobility when travelling by air (Regulation (EC) No 1107/2006).\n\nRegulation (EC) No 261/2004 has been the cause of numerous disputes and has been clarified in a series of rulings(#_ftn5).\n\nDenied boarding(#_ftn6): [...] 5 February 2014 position on the proposal for a regulation of the European Parliament and of the Council amending Regulation (EC) No 261/2004 establishing common rules on compensation and assistance to passengers in the event of denied boarding and of cancellation or long delay of flights and Regulation (EC) No 2027/97 on air carrier liability in respect of the carriage of passengers and their baggage by air;\n 7 July 2015 resolution on delivering multimodal integrated ticketing in Europe;",
+        "id": "6abefa-04",
+        "raw_content": null,
+        "score": 0.49831602,
+        "title": "Passenger rights | Fact Sheets on the European Union | European Parliament",
+        "url": "https://www.europarl.europa.eu/factsheets/en/sheet/48/passenger-rights"
+      }
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "cancel-short-notice",
+  "title": "WAW to LIS cancellation with 5 days notice",
+  "input_text": "From: notifications@vistula-air.com\nTo: anna.kowalska@example.com\nSubject: Flight VQ401 Cancellation Notice\n\nDear Anna Kowalska,\n\nWe regret to inform you that flight VQ401 scheduled from Warsaw Chopin (WAW) to Lisbon (LIS) on May 15, 2026, departing at 10:00 and arriving at 13:30, has been cancelled due to operational reorganization.\n\nNotice of cancellation is provided 5 days prior to scheduled departure. No alternative rerouting is available at this time. Under applicable regulations, you are entitled to reimbursement or rerouting, as well as assistance.\n\nVistula Air Customer Service",
+  "expected": {
+    "applies": true,
+    "amount": 400,
+    "disputed": false
+  }
+}
